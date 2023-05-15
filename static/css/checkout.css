@@ -1,0 +1,141 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.blocks {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+
+
+
+.products {
+  background-color: #e8e8e8;
+  padding: 20px;  
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #fff;
+}
+
+.product .quantity{
+  
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.product .price{
+  margin-left: 0;
+}
+
+
+
+.quantity-input{
+  width: 40%;
+  text-align: right;
+}
+
+
+
+/* .products{
+  
+  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #e8e8e8;
+  padding: 20px;  
+}
+
+.product{
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  text-align: left;
+  border: solid rgb(41, 41, 41) 1px;
+}
+
+.product .price{
+  margin-left: auto;
+  margin-right: 0;
+
+}
+
+.product .quantity{
+  margin: 0 auto;
+}
+
+.quantity  */
+
+
+
+/* .product .name{
+  display: flex;
+  text-align: right;
+}
+.product .price{
+  display: flex;
+  text-align: left;
+} */
+
+.calculator {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+
+.calculator-screen {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.screen-input {
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.button {
+  padding: 10px;
+  font-size: 20px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.menu-button{
+  background-color: #c0392b;
+}
+
+#equal{
+  background-color: #3498db;
+}

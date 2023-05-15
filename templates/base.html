@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+	{% block stylesheet %} {% endblock %}
+	<title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<nav>
+		<ul>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+		</ul>
+		<ul>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Register</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content -->
+	<div id="div-content">
+		{% block content %} {% endblock %}
+		</div>
+		
+	</div>
+
+	{% block scripts %} {% endblock %}
+</body>
+</html>

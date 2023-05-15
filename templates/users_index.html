@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block stylesheet%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/checkout.css')}}">
+{% endblock %}
+
+{% block title %}user{% endblock %}
+
+{% block content %}
+		<div id="checkout" class="active">
+			<div class="container">
+				<div class="blocks">
+				  <div class="block" value="10" name="coca">Block 1</div>
+				  <div class="block" value="20" name="fanta">Block 2</div>
+				  <div class="block" value="36" name="frite">Block 3</div>
+				  <!-- Add more blocks as needed -->
+				</div>
+				<div class="products">
+					<div class="product" id="producthead"><p class="name">Produit</p> <p class="quantity">Quantité</p> <p class="price">Prix</p></div>
+					<div class="product"><p class="name">coca</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="2"></p> <p class="price">10Da</p></div>
+					<div class="product"><p class="name">fanta</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="1"></p> <p class="price">20Da</p></div>
+					<div class="product"><p class="name">frite</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="1"></p> <p class="price">355556Da</p></div>
+				</div>
+				<div class="calculator"> 
+					<div class="calculator-screen">
+						<input type="text" class="screen-input" id="CALC_INPUT" readonly>
+				  	</div>
+				  	<div class="calculator-buttons">
+						<button class="button" onclick="CalculatorAdd('7')">7</button>
+						<button class="button" onclick="CalculatorAdd('8')">8</button>
+						<button class="button" onclick="CalculatorAdd('9')">9</button>
+						<button class="button" onclick="CalculatorAdd('/')">/</button>
+						<button class="button menu-button" onclick="CalculatorCancel()">back</button>
+						<button class="button" onclick="CalculatorAdd('4')">4</button>
+						<button class="button" onclick="CalculatorAdd('5')">5</button>
+						<button class="button" onclick="CalculatorAdd('6')">6</button>
+						<button class="button" onclick="CalculatorAdd('*')">*</button>
+						<button class="button menu-button" onclick="CalculatorSuppr()">suppr</button>
+						<button class="button" onclick="CalculatorAdd('1')">1</button>
+						<button class="button" onclick="CalculatorAdd('2')">2</button>
+						<button class="button" onclick="CalculatorAdd('3')">3</button>
+						<button class="button" onclick="CalculatorAdd('-')">-</button>
+						<button class="button menu-button" onclick="CalculatorReset()">RESET</button>
+						<button class="button" onclick="CalculatorAdd('0')">0</button>
+						<button class="button" onclick="CalculatorAdd('.')">.</button>
+						<button class="button" onclick="CalculatorAdd('%')">%</button>
+						<button class="button" onclick="CalculatorAdd('+')">+</button>
+						<button class="button" id="equal" onclick="CalculatorResult()">=</button>
+
+				  	</div>
+				</div>
+			  </div>
+		</div>
+		
+{% endblock %}
+
+{% block scripts %}	
+<script type="text/javascript" src="{{url_for('static', filename='js/checkout.js')}}"></script>
+{% endblock %}
+
