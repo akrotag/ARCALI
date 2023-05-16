@@ -20,9 +20,6 @@
   cursor: pointer;
 }
 
-
-
-
 .products {
   background-color: #e8e8e8;
   padding: 20px;  
@@ -39,8 +36,7 @@
   background-color: #fff;
 }
 
-.product .quantity{
-  
+.product .quantity{  
   margin-left: auto;
   margin-right: auto;
   text-align: center;

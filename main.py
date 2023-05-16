@@ -1,6 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from flask_mobility import Mobility
 from hashlib import sha256
 from users import users
 #example hash: sha256(string.encode('utf-8')).hexdigest()
