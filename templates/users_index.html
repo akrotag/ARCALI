@@ -8,7 +8,7 @@
 
 {% block content %}
 		<div id="checkout" class="active">
-			<div class="container">
+			<div class="container-2" id="CONTAINER">
 				<div class="blocks">
 				  <div class="block" value="10" name="coca">Block 1</div>
 				  <div class="block" value="20" name="fanta">Block 2</div>
@@ -16,12 +16,40 @@
 				  <!-- Add more blocks as needed -->
 				</div>
 				<div class="products">
-					<div class="product" id="producthead"><p class="name">Produit</p> <p class="quantity">Quantité</p> <p class="price">Prix</p></div>
-					<div class="product"><p class="name">coca</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="2"></p> <p class="price">10Da</p></div>
-					<div class="product"><p class="name">fanta</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="1"></p> <p class="price">20Da</p></div>
-					<div class="product"><p class="name">frite</p> <p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="1"></p> <p class="price">1600Da</p></div>
+					<div class="product" id="producthead">
+						<p class="name">Produit</p> 
+						<p class="quantity">Quantité</p> 
+						<p class="price">Prix</p> 
+						<p class="product-list-refresh">Reset</p>
+					</div>
+					<div class="product product-table" onclick="showCalc(this, 10)">
+						<p class="name">coca</p> 
+						<p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="2"></p> 
+						<p class="price">10Da</p>
+						<p class="product-list-refresh reload">&#x21bb;</p>
+					</div>
+					<div class="product product-table" onclick="showCalc(this, 20)">
+						<p class="name">fanta</p> 
+						<p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="1"></p> 
+						<p class="price">20Da</p>
+						<p class="product-list-refresh reload">&#x21bb;</p>
+
+					</div>
+					<div class="product product-table" onclick="showCalc(this, 1600)">
+						<p class="name">frite avec kebab sans frite mais un peu de sauce blanche a coté quand même</p> 
+						<p class="quantity"><input type="number" class="quantity-input" placeholder="0" value="1"></p> 
+						<p class="price">1600Da</p>
+						<p class="product-list-refresh reload">&#x21bb;</p>
+					</div>
+					<div class="product product-total">
+						<p class="name">TOTAL</p> 
+						<p class="quantity"></p> 
+						<p class="price">123Da</p>
+						<p class="product-list-refresh reload">&#x21bb;</p>
+					</div>
+
 				</div>
-				<div class="calculator"> 
+				<div class="calculator hidden" id="CALCULATOR"> 
 					<div class="calculator-screen">
 						<input type="text" class="screen-input" id="CALC_INPUT" readonly>
 				  	</div>
@@ -48,13 +76,14 @@
 						<button class="button" id="equal" onclick="CalculatorResult()">=</button>
 
 				  	</div>
-				</div>
 			  </div>
 		</div>
 		
 {% endblock %}
 
 {% block scripts %}	
+<script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/calc.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/checkout.js')}}"></script>
 {% endblock %}
 

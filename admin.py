@@ -4,6 +4,7 @@ from hashlib import sha256
 
 admin = Blueprint("admin", __name__)
 
+###-Pages-###
 
 @admin.route("/admin_gestion")
 @login_required
