@@ -1,7 +1,11 @@
+let total = 0
 var last_versions = []
 const calc_screen = document.querySelector("#CALC_INPUT")
+calc_screen.value = total
 let current_element = ""
 let result = false
+let selected=false
+
 
 function saveCalcState(){
     last_versions.push(document.querySelector("#CALC_INPUT").value)
@@ -10,6 +14,9 @@ function saveCalcState(){
     }
 }
 
+function changeCalcState(){
+    selected = !selected
+}
 
 function CalculatorAdd(value){
     saveCalcState()
@@ -85,43 +92,46 @@ function CalculatorResult(){
     s = s.join("")
     s = math.round(math.eval(s))
     calc_screen.value = s
-    current_element.children[2].innerText = `${s}Da`
-    current_element.setAttribute("onclick", `showCalc(this, ${s})`)
     result = true
 }
 
-function showCalc(element, price){
-    current_element = element
-    container = document.querySelector("#CONTAINER")
-    if(container.classList.contains("container-2")){
-        container.classList.remove("container-2")
-        container.classList.add("container-3")
-        document.querySelector('#CALCULATOR').classList.remove("hidden")
+document.addEventListener('keydown', function(event){
+    if(!selected){return}
+    pressed_key = event.key
+    if (pressed_key == "Enter"){
+        CalculatorResult()
+        return
     }
-    calc_screen.value = price
-}
+    else if ((pressed_key == "Backspace" || pressed_key == "delete") && event.shiftKey){
+        CalculatorReset()
+        return
+    }
+    else if (pressed_key == "Backspace" || pressed_key == "delete"){
+        CalculatorSuppr()
+        return
+    }    
+    else if (pressed_key.toLowerCase()=="z" && event.ctrlKey){
+        CalculatorCancel()
+        return
+    }
+    const decoder = {
+        "&": 1,
+        "é":2,
+        '"':3,
+        "'":4,
+        "(":5,
+        "-":6,
+        "è":7,
+        "_":8,
+        "ç":9,
+        "à":0
+    }
+    if (!/[0-9]+/.test(event.key) && !/[-+/\*.%]/.test(event.key)){
+        pressed_key = decoder[event.key]
+    }
+    if (!/^[0-9]+$/.test(pressed_key) && !/[-+/\*.%]/.test(pressed_key) || /[]/.test(pressed_key)){
+        return
+    }
+    CalculatorAdd(pressed_key)
+})
 
-
-// let s = "5*2+6-40%+44" // -> 57.6
-// let temp = ""
-// s= s.split(/(?=[%])|(?<=[%])/g)
-// for (let i=0; i< s.length; i++){
-//     if (s[i] == "%"){
-//         s[i] = ""
-//         s[i-1] = s[i-1].split(/(?=[$-/:-?{-~!"^_`\[\]])/gi)
-//         temp = s[i-1].pop()
-//         s[i-1] = s[i-1].join("")
-//         if (/[-\+]/g.test(temp)){
-//             symbol = temp[0]
-//             temp = parseFloat(temp.replace(/[-\+]/g, ""))
-//             s[i] = `*(${1}${symbol}${(temp/100)})`
-//         }
-//     else if (/[*/]/g.test(temp)){
-//         symbol = temp[0]
-//         temp = parseFloat(temp.replace(/[*+]/g, ""))
-//         s[i] = `${symbol}${(temp/100)}`
-//     }
-//     }
-// }
-// s = s.join("")
-// math.eval(s)
