@@ -29,7 +29,7 @@ def create_products_db():
     products_cu.execute("""CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name VARCHAR NOT NULL,
-    price INTEGER NOT NULL,
-    img VARCHAR 
+    price REAL NOT NULL,
+    img VARCHAR DEFAULT 'static/img/default.png'
     )""")
     products_conn.commit()

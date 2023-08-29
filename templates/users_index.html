@@ -10,9 +10,9 @@
 		<div id="checkout" class="active">
 			<div class="container-2" id="CONTAINER">
 				<div class="blocks">
-				  <div class="block" value="10" name="coca">Block 1</div>
-				  <div class="block" value="20" name="fanta">Block 2</div>
-				  <div class="block" value="36" name="frite">Block 3</div>
+				  <div class="block" name="coca" price="10" onclick="AddItem(this)">Block 1</div>
+				  <div class="block" name="fanta" price="20" onclick="AddItem(this)">Block 2</div>
+				  <div class="block" name="frite" price="36" onclick="AddItem(this)">Block 3</div>
 				  <!-- Add more blocks as needed -->
 				</div>
 				
@@ -45,30 +45,16 @@
 				  	</div>
 			  </div>
 		</div>
-		<div class="item-container">
+		<div class="item-container" >
+			<div id="items-list">
 			<div class="item">
 				<span class="items-title">Items list</span>
 			</div>
-			<div class="item">
-			  <div class="item-details">
-				<span class="item-name">Item Name but like a really long item taht someone took but they don't really want it I</span>
-				<input class="item-quantity" type="number" value="1" min="1">
-				<span class="item-price">360000Da</span>
-			  </div>
-			  <button class="remove-button">Remove</button>
-			</div>
-			<div class="item">
-			  <div class="item-details">
-				<span class="item-name">Another Item</span>
-				<input class="item-quantity" type="number" value="3" min="1">
-				<span class="item-price">150Da</span>
-			  </div>
-			  <button class="remove-button">Remove</button>
-			</div>
-			<!-- You can add more item entries here -->
+		</div>
+			
 			<div class="item">
 				<span class="total">Total</span>
-				<span class="total-price">150Da</span>
+				<span class="total-price" id="total-value">0Da</span>
 			</div>
 		  </div>
 		
