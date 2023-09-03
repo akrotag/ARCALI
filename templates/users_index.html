@@ -10,9 +10,12 @@
 		<div id="checkout" class="active">
 			<div class="container-2" id="CONTAINER">
 				<div class="blocks">
-				  <div class="block" name="coca" price="10" onclick="AddItem(this)">Block 1</div>
-				  <div class="block" name="fanta" price="20" onclick="AddItem(this)">Block 2</div>
-				  <div class="block" name="frite" price="36" onclick="AddItem(this)">Block 3</div>
+					{% for item in items %}
+					<div class="block" name="{{ item[1] }}" price="{{item[3]}}" category="{{item[2]}}" onclick="AddItem(this)">
+						<img src="{{ url_for('static', filename=item[4])}}" alt="{{item[1]}}" class="item-picture" >
+						<span class="item-name">{{item[1]}}-{{item[3]}}Da</span>
+					</div>
+					{% endfor %}
 				  <!-- Add more blocks as needed -->
 				</div>
 				

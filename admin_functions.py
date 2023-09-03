@@ -1,9 +1,9 @@
 import sqlite3 as sql
 
-users_conn = sql.connect("databases/users.db")
+users_conn = sql.connect("db/users.db")
 users_cu = users_conn.cursor()
 
-products_conn = sql.connect("databases/products.db")
+products_conn = sql.connect("db/products.db")
 products_cu = products_conn.cursor()
 
 def reset_users_db():
@@ -30,6 +30,13 @@ def create_products_db():
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name VARCHAR NOT NULL,
     price REAL NOT NULL,
-    img VARCHAR DEFAULT 'static/img/default.png'
+    category VARCHAR NOT NULL,
+    img VARCHAR DEFAULT '/img/default.png'
     )""")
     products_conn.commit()
+
+
+def add_product(name, price, category="boisson", img = '/img/default.png'):
+    products_cu.execute(f"""INSERT INTO products(name, price, category, img) VALUES ("{name}", "{price}", "{category}", "{img}")""")
+    products_conn.commit()
+

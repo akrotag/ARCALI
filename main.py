@@ -2,8 +2,12 @@ from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from hashlib import sha256
 from users import users
+import admin_functions
 #example hash: sha256(string.encode('utf-8')).hexdigest()
-
+admin_functions.create_products_db()
+admin_functions.add_product("Coca", "boisson","10")
+admin_functions.add_product("Fanta", "boisson","20")
+admin_functions.add_product("Boisson","boisson", "30")
 
 app = Flask(__name__)
 

@@ -14,7 +14,10 @@ As an administrator:
 As an employee:
 - Easily see if an item is disponible
 - Access to a calculator
-- Easier workflow than with a pen and paper
+- Improved workflow
+
+Current state (as a board):
+<img src="https://i.imgur.com/44snEkD.png" alt="trello board">
 
 ## fr
 # C.O.R.A.I.L
