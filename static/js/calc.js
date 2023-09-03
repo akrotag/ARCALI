@@ -10,7 +10,7 @@ let selected=false
 function saveCalcState(){
     last_versions.push(document.querySelector("#CALC_INPUT").value)
     if (last_versions.length > 10){
-        last_versions = last_versions.slice(1, last_versions.length)
+        last_versions.shift()
     }
 }
 
@@ -90,7 +90,7 @@ function CalculatorResult(){
         }
     }
     s = s.join("")
-    s = math.round(math.eval(s))
+    s = math.round(math.eval(s), 2)
     calc_screen.value = s
     result = true
 }
