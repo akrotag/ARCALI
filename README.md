@@ -19,6 +19,5 @@ As an employee:
 Current state (as a board):
 <img src="https://i.imgur.com/44snEkD.png" alt="trello board">
 
-## fr
-# C.O.R.A.I.L
- Comptabilité et Régulation Automatisée des Inventaires Logistiques
+## Developer's note
+The project is currently on hold
